@@ -359,7 +359,7 @@ Departments:
     <rationale>Inaccurate data may be due to negligence.</rationale>
   </security_property>
 </asset>
-<asset name="CCVTV Cameras" short_code="Camera" type="Hardware" is_critical="0">
+<asset name="CCTV Camera" short_code="Camera" type="Hardware" is_critical="0">
   <description>Cameras placed at points in central station </description>
   <significance>High Significance to CCTV system</significance>
   <critical_rationale></critical_rationale>
@@ -367,7 +367,7 @@ Departments:
     <rationale>Provides accountablity through survallance </rationale>
   </security_property>
 </asset>
-<asset name="CCTV Recordings" short_code="Recordings" type="Hardware" is_critical="0">
+<asset name="CCTV Recording" short_code="Recordings" type="Hardware" is_critical="0">
   <description>recordings of CCTV survallance cameras</description>
   <significance>Signficant to the CCTV system and potential victim of crime </significance>
   <critical_rationale></critical_rationale>
@@ -375,15 +375,15 @@ Departments:
     <rationale>Provides accountablity for incerdents crime, through recordings of crime carried out on the station.</rationale>
   </security_property>
 </asset>
-<asset name="Passenger's Bag" short_code="Luggage" type="People" is_critical="0">
+<asset name="Passenger Luggage" short_code="Luggage" type="People" is_critical="0">
   <description>The luggae of a rail passenger travelling through Cental Station</description>
   <significance>Luggage is of high significace to the indervidual passenger.</significance>
   <critical_rationale></critical_rationale>
 </asset>
-<vulnerability name="Reduced survallance and security capacity" type="Design">
+<vulnerability name="Absense of CCTV surveillance" type="Design">
   <description>The reduced survallance capablites at Central Station make capturing incerdents of crime for resoultion and prevention purposes problematic. </description>
   <vulnerability_environment name="Central Station" severity="Negligible">
-    <vulnerable_asset name="Passenger's Bag" />
+    <vulnerable_asset name="Passenger Luggage" />
   </vulnerability_environment>
 </vulnerability>
 <vulnerability name="Weak access control" type="Implementation">
@@ -392,8 +392,14 @@ Departments:
     <vulnerable_asset name="Access Control Framework" />
   </vulnerability_environment>
 </vulnerability>
-<vulnerability name="Disclosure of confidential health records" type="Implementation">
+<vulnerability name="Visibility of health records" type="Implementation">
   <description>A secretary is able to read the sick note of an employee and discuss it with their colleagues.</description>
+  <vulnerability_environment name="Balkan Rail Corprate HQ" severity="Critical">
+    <vulnerable_asset name="Medical Certificate" />
+  </vulnerability_environment>
+</vulnerability>
+<vulnerability name="Absence of defined business process" type="Design">
+  <description>The absence of defined business process for handing of employee sick notes could result in ambiguity when executing tasks.  Resulting in the loss or breach of confidential data as a result of process deviation, through unfamiliarity or deliberate violation.</description>
   <vulnerability_environment name="Balkan Rail Corprate HQ" severity="Critical">
     <vulnerable_asset name="Medical Certificate" />
   </vulnerability_environment>
@@ -440,22 +446,12 @@ Departments:
     </threatened_property>
   </threat_environment>
 </threat>
-<threat name="Lack of defined business process" type="Insider/Manipulation">
-  <method>The submission and processing of employee sick notes has been ill defined, resulting in confidential information exchanging hands with muiltple department secretaries before reaching the recipient in the Human Resources department</method>
-  <threat_environment name="Balkan Rail Corprate HQ" likelihood="Probable" >
-    <threat_attacker name="Maria" />
-    <threatened_asset name="Medical Certificate" />
-    <threatened_property name="confidentiality" value="Medium">
-      <rationale>Confidentiality is threatend</rationale>
-    </threatened_property>
-  </threat_environment>
-</threat>
-<threat name="Increased risk of theft" type="Physical">
+<threat name="Theft" type="Physical">
   <method>Due to PESTLE factors in the operating country of Balkin Rail, there has been an increased rate of theft related crimes. </method>
   <threat_environment name="Central Station" likelihood="Frequent" >
     <threat_attacker name="Jack" />
-    <threatened_asset name="Passenger's Bag" />
-    <threatened_property name="unlinkability" value="Low">
+    <threatened_asset name="Passenger Luggage" />
+    <threatened_property name="availability" value="Low">
       <rationale>TBC</rationale>
     </threatened_property>
   </threat_environment>
@@ -645,13 +641,13 @@ Departments:
   <fit_criterion>The implemented policy will detail the process for replacing a lost card with a temporary assigned card, as well as reporting procedures for the incident in question</fit_criterion>
   <originator>Anton</originator>
 </requirement>
-<requirement name="Data retention requirement" reference="CCTV Recordings" reference_type="asset" label="1" type="Legal" priority="1" >
+<requirement name="Data retention requirement" reference="CCTV Recording" reference_type="asset" label="1" type="Legal" priority="1" >
   <description>Recordings from the CCTV system will be stored for a predetermined and mutually agreed time duration</description>
   <rationale>To provide evidence for following up of incidents of crime. </rationale>
   <fit_criterion>Original copies of the recordings from cameras on the station will be stored with other CCTV recordings of the Balkan Rail main office in a bank safety deposit box.</fit_criterion>
   <originator></originator>
 </requirement>
-<requirement name="CCTV Installation" reference="CCVTV Cameras" reference_type="asset" label="1" type="Functional" priority="1" >
+<requirement name="CCTV Placement" reference="CCTV Camera" reference_type="asset" label="1" type="Functional" priority="1" >
   <description>The strategic placement of CCTV recording cameras</description>
   <rationale>Ensure adequate surveillance capability is implemented covering critical areas of the station</rationale>
   <fit_criterion>A site survey  and consultation with the station manager will be carried out prior to installation of the CCTV cameras </fit_criterion>
